@@ -7,18 +7,17 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [processingTime, setProcessingTime] = useState(0.06);
   // Auto-load when hallTicket reaches 10 characters
-  React.useEffect(() => {
-    if (hallTicket.trim().length === 10) {
-      setError("");
-      setShowResults(true);
+ React.useEffect(() => {
+  if (hallTicket.length === 10 && rollRegex.test(hallTicket)) {
+    setShowResults(true);
 
-      setTimeout(() => {
-        setProcessingTime((Math.random() * 0.1 + 0.05).toFixed(2));
-      }, 300);
-    } else {
-      setShowResults(false);
-    }
-  }, [hallTicket]);
+    setTimeout(() => {
+      setProcessingTime((Math.random() * 0.1 + 0.05).toFixed(2));
+    }, 300);
+  } else {
+    setShowResults(false);
+  }
+}, [hallTicket]);
 
   // Mock data for the student result
   const studentData = {
@@ -90,7 +89,7 @@ function App() {
     },
   ];
 
-  const handleSubmit = (e) => {
+  const rollRegex = /^(23VV1A05(0[1-9]|[1-5][0-9]|6[0-3])|24VV5A05(6[7-9]|7[0-5]))$/; const handleSubmit = (e) => {
     e.preventDefault();
 
     if (hallTicket.trim().length !== 10) {
@@ -135,35 +134,52 @@ function App() {
         </div>
 
         <form onSubmit={handleSubmit} className="hall-ticket-form">
-          <input
-            type="text"
-            value={hallTicket}
-            onChange={(e) => {
-              setHallTicket(e.target.value.toUpperCase());
-              setShowResults(false); // hide old results while typing
-            }}
-            maxLength={10}
-            placeholder="HALLTICKET NUMBER"
-            className="hall-ticket-input"
-            autoFocus
-          />
-          
+
+<input
+  type="text"
+  value={hallTicket}
+  onChange={(e) => {
+    const value = e.target.value.toUpperCase();
+    setHallTicket(value);
+    setShowResults(false);
+
+    // Remove error while typing
+    if (value.length < 10) {
+      setError("");
+      return;
+    }
+
+    // When length is exactly 10 → validate
+    if (!rollRegex.test(value)) {
+      setError("Invalid Roll Number");
+    } else {
+      setError("");
+      setShowResults(true);
+    }
+  }}
+  maxLength={10}
+  placeholder="HALLTICKET NUMBER"
+  className="hall-ticket-input"
+  autoFocus
+/>
+
         </form>
         {error && (
-            <div
-              style={{
-                background: "#ffd5d5",
-                padding: "10px",
-                marginTop: "10px",
-                color: "red",
-                textAlign: "center",
-                borderRadius: "5px",
-                fontWeight: "bold",
-              }}
-            >
-              {error}
-            </div>
-          )}
+          <div
+            style={{
+              background: "#ffd5d5",
+              padding: "10px",
+              fontSize:"14px",
+              marginTop: "10px",
+              color: "red",
+              textAlign: "center",
+              borderRadius: "5px",
+              // fontWeight: "bold",
+            }}
+          >
+            {error}
+          </div>
+        )}
 
         {showResults && (
           <div className="results-container">
