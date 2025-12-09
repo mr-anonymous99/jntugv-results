@@ -1,0 +1,224 @@
+/* App.css */
+.App {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+.college-name {
+  color: #003366;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.exam-title {
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.go-back {
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exam-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.exam-info h3 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.deadline {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.hall-ticket-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.hall-ticket-input {
+  width: 300px;
+  padding: 12px 15px;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 8px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: monospace;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.hall-ticket-input:focus {
+  border-color: #003366;
+  box-shadow: 0 0 5px rgba(0, 51, 102, 0.2);
+}
+
+.submit-button {
+  margin-left: 15px;
+  padding: 12px 20px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #002244;
+}
+
+.results-container {
+  margin-top: 30px;
+}
+
+.hall-ticket-display {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.processing-time {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.student-info-table,
+.subjects-table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.student-info-table table,
+.subjects-table table {
+  width: 100%;
+}
+
+.student-info-table th,
+.subjects-table th {
+  background-color: #555;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.student-info-table td,
+.subjects-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.student-info-table td {
+  font-weight: 500;
+}
+
+.subjects-table td {
+  font-weight: 400;
+}
+
+.even-row {
+  background-color: #f9f9f9;
+}
+
+.odd-row {
+  background-color: #fff;
+}
+
+.App-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  color: #666;
+  font-size: 14px;
+}
+
+.dhondi {
+  font-weight: bold;
+  color: #003366;
+  font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  .hall-ticket-input {
+    width: 250px;
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
+  
+  .college-name {
+    font-size: 20px;
+  }
+  
+  .exam-title {
+    font-size: 18px;
+  }
+  
+  .student-info-table th,
+  .subjects-table th {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  .student-info-table td,
+  .subjects-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
