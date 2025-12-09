@@ -121,14 +121,14 @@ function App() {
           JNTU-GV College of Engineering, Vizianagaram
         </h1>
         <h2 className="exam-title">Examination Results</h2>
-        <a href="https://results.jntugvcev.edu.in" class="go-back">
+        <a href="https://results.jntugvcev.edu.in" className="go-back">
           Go Back
         </a>
       </header>
 
       <main className="content">
         <div className="exam-info">
-          II B.Tech II Semester (R23) Regular Exam (2023 Batch) April 2025
+          III B.Tech I Semester (R23) Regular Exam (2023 Batch) November 2025
           <p className="deadline">
             Last date of recounting and revaluation is 16 June, 2025 05:00 pm
           </p>
@@ -168,12 +168,11 @@ function App() {
         {showResults && (
           <div className="results-container">
             <div className="hall-ticket-display">
-              {hallTicket.toUpperCase()}
+              {/* {hallTicket.toUpperCase()} */}
               <div className="processing-time">
                 Request processed in {processingTime} seconds
               </div>
             </div>
-
             {/* student info */}
             <div className="student-info-table">
               <table>
